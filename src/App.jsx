@@ -1,9 +1,9 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import { useState } from 'react'
 import Header from './components/Header/Header'
 import Sidebar from './components/Sidebar/Sidebar'
-import TVLGraph from './components/TVLGraph/TVLGraph'
-import TPSData from './components/TPSData/TPSData'
-import DataList from './components/DataList/DataList'
+import Dashboard from './components/Dashboard/Dashboard'
+import BlockchainDetails from './components/BlockchainDetails/BlockchainDetails'
 import './App.css'
 
 function App() {
@@ -14,19 +14,18 @@ function App() {
   }
 
   return (
-    <div className="app">
-      <Header onMenuClick={toggleSidebar} />
-      <Sidebar isOpen={isSidebarOpen} />
-      <main className="main-content">
-        <div className="dashboard-container">
-          <div className="top-row">
-            <TVLGraph />
-            <TPSData />
-          </div>
-          <DataList />
-        </div>
-      </main>
-    </div>
+    <Router>
+      <div className="app">
+        <Header onMenuClick={toggleSidebar} />
+        <Sidebar isOpen={isSidebarOpen} />
+        <main className="main-content">
+          <Routes>
+            <Route path="/" element={<Dashboard />} />
+            <Route path="/blockchain/:id" element={<BlockchainDetails />} />
+          </Routes>
+        </main>
+      </div>
+    </Router>
   )
 }
 

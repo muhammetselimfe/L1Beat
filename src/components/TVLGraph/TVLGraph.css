@@ -27,16 +27,19 @@
 .graph-container {
   width: 100%;
   height: 300px;
+  overflow-x: hidden;
 }
 
 /* Add media query */
 @media (max-width: 768px) {
   .tvl-graph {
     margin-left: 0;
+    padding: 15px;
   }
 
   .graph-container {
-    height: 250px; /* Slightly smaller for mobile */
+    height: 250px;
+    margin: 0 -15px;
   }
 
   .tvl-header {

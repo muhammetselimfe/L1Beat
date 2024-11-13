@@ -1,3 +1,4 @@
+import { NavLink } from 'react-router-dom'
 import './Sidebar.css'
 
 function Sidebar({ isOpen }) {
@@ -7,28 +8,36 @@ function Sidebar({ isOpen }) {
       <nav className="sidebar-nav">
         <ul className="sidebar-menu">
           <li className="sidebar-item">
-            <a href="#dashboard" className="sidebar-link active">
+            <NavLink to="/" className={({ isActive }) => 
+              `sidebar-link ${isActive ? 'active' : ''}`
+            }>
               <span className="sidebar-icon">📊</span>
               Dashboard
-            </a>
+            </NavLink>
           </li>
           <li className="sidebar-item">
-            <a href="#analytics" className="sidebar-link">
+            <NavLink to="/analytics" className={({ isActive }) => 
+              `sidebar-link ${isActive ? 'active' : ''}`
+            }>
               <span className="sidebar-icon">📈</span>
               Analytics
-            </a>
+            </NavLink>
           </li>
           <li className="sidebar-item">
-            <a href="#transactions" className="sidebar-link">
+            <NavLink to="/transactions" className={({ isActive }) => 
+              `sidebar-link ${isActive ? 'active' : ''}`
+            }>
               <span className="sidebar-icon">💸</span>
               Transactions
-            </a>
+            </NavLink>
           </li>
           <li className="sidebar-item">
-            <a href="#settings" className="sidebar-link">
+            <NavLink to="/settings" className={({ isActive }) => 
+              `sidebar-link ${isActive ? 'active' : ''}`
+            }>
               <span className="sidebar-icon">⚙️</span>
               Settings
-            </a>
+            </NavLink>
           </li>
         </ul>
       </nav>

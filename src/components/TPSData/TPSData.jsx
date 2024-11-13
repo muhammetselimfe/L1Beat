@@ -14,12 +14,21 @@ function TPSData() {
         </div>
       </div>
       <div className="graph-container">
-        <ResponsiveContainer width="100%" height={300}>
-          <BarChart data={tpsData} margin={{ top: 10, right: 30, left: 0, bottom: 0 }}>
+        <ResponsiveContainer width="100%" height="100%">
+          <BarChart 
+            data={tpsData} 
+            margin={{ 
+              top: 10, 
+              right: 10, /* Reduced right margin */
+              left: 0, 
+              bottom: 0 
+            }}
+          >
             <CartesianGrid strokeDasharray="3 3" vertical={false} />
             <XAxis 
               dataKey="name"
-              tick={{ fill: '#a0a0a0' }}
+              tick={{ fill: '#a0a0a0', fontSize: '12px' }} /* Smaller font size */
+              interval={0} /* Show all ticks */
             />
             <YAxis 
               tick={{ fill: '#a0a0a0' }}

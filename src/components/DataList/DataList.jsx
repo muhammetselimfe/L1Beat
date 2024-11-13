@@ -1,8 +1,14 @@
+import { useNavigate } from 'react-router-dom'
 import useStore from '../../appStore'
 import './DataList.css'
 
 function DataList() {
+  const navigate = useNavigate()
   const blockchainData = useStore((state) => state.blockchainData)
+
+  const handleCardClick = (chainName) => {
+    navigate(`/blockchain/${chainName.toLowerCase()}`)
+  }
 
   const formatTVL = (value) => {
     return `$${(value / 1000000000).toFixed(1)}B`
@@ -23,7 +29,13 @@ function DataList() {
       <h2>Avalanche L1's Data</h2>
       <div className="blockchain-cards">
         {blockchainData.map((chain) => (
-          <div className="blockchain-card" key={chain.name}>
+          <div 
+            className="blockchain-card" 
+            key={chain.name}
+            onClick={() => handleCardClick(chain.name)}
+            role="button"
+            tabIndex={0}
+          >
             <div className="card-header">
               <h3>{chain.name}</h3>
               <span className={getScoreClass(chain.score)}>

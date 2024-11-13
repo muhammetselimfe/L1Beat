@@ -26,6 +26,7 @@
 
 .graph-container {
   height: 300px;
+  overflow-x: hidden;
 }
 
 /* Add media query */
@@ -35,7 +36,8 @@
   }
 
   .graph-container {
-    height: 250px; /* Slightly smaller for mobile */
+    height: 250px;
+    margin: 0 -15px;
   }
 
   .tps-header {
